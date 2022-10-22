@@ -1,0 +1,11 @@
+<mat-card>
+  <app-character-search
+    (searchCharacter)="searchCharacter($event)">
+  </app-character-search>
+  
+  <app-characters-list
+    [characters]="characters$ | async"
+    (previousPage)="previousPage($event)"
+    (nextPage)="nextPage($event)">
+  </app-characters-list>
+</mat-card>

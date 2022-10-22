@@ -1,0 +1,33 @@
+.button {
+  float: left;
+  background-color: #f76200;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+p {
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-weight: bolder;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+mat-list {
+  margin-top: 20px;
+}
+
+.loading{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}

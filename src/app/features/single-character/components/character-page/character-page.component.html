@@ -1,0 +1,34 @@
+<div>
+  <button class="button" mat-mini-fab (click)="goBack()">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <h1>{{ character?.name }}</h1>
+</div>
+<p class="loading" *ngIf="!character">Loading...</p>
+
+<mat-list>
+  <p>Height</p>
+  <mat-list-item>{{ character?.height }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <p>Weight</p>
+  <mat-list-item>{{ character?.mass }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <p>Hair color</p>
+  <mat-list-item>{{ character?.hair_color }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <p>Skin color</p>
+  <mat-list-item>{{ character?.skin_color }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <p>Eye color</p>
+  <mat-list-item>{{ character?.eye_color }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <p>Birth year</p>
+  <mat-list-item>{{ character?.birth_year }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <p>Gender</p>
+  <mat-list-item>{{ character?.gender }}</mat-list-item>
+  <mat-divider></mat-divider>
+  <p>Movies</p>
+  <mat-list-item *ngFor="let movie of character?.films"
+    ><li>"{{ movie | urlToMovieName | async }}"</li></mat-list-item>
+</mat-list>

@@ -1,0 +1,24 @@
+<mat-list>
+  <p *ngIf="!characters?.results">Loading...</p>
+  <p *ngIf="characters?.results?.length === 0">No character found!</p>
+  <mat-list-item *ngFor="let character of characters?.results">
+    <button mat-button [routerLink]="['/character', character.url | urlToId]">
+      {{ character.name }}
+    </button>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+
+<mat-toolbar>
+  <span>
+    <mat-icon [ngClass]="{ disable: !characters?.previous }" (click)="previous(characters?.previous)">
+      keyboard_arrow_left
+    </mat-icon>
+  </span>
+  <span class="pageNumber">{{ characters | pageNumber }}</span>
+  <span>
+    <mat-icon [ngClass]="{ disable: !characters?.next }" (click)="next(characters?.next)">
+      keyboard_arrow_right
+    </mat-icon>
+  </span>
+</mat-toolbar>

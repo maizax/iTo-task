@@ -3,18 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'characters',
     loadChildren: () =>
-      import('./features/home/home.module').then((m) => m.HomeModule),
-  },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {
-    path: '**',
-    loadChildren: () =>
-      import('./features/not-found/not-found.module').then(
-        (m) => m.NotFoundModule
+      import('./features/all-characters/characters.module').then(
+        (m) => m.CharactersModule
       ),
   },
+  {
+    path: 'character/:id',
+    loadChildren: () =>
+      import('./features/single-character/single-character.module').then(
+        (m) => m.SingleCharacterModule
+      ),
+  },
+  { path: '', redirectTo: '/characters', pathMatch: 'full' },
+  { path: '**', redirectTo: '/characters' },
 ];
 
 @NgModule({
